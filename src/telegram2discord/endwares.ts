@@ -256,6 +256,16 @@ const parseMediaGroup = (ctx: TediCrossContext, byTimer: boolean = false) => {
  * @param ctx.TediCross	The global TediCross context of the message
  */
 export const relayMessage = (ctx: TediCrossContext) => {
+	// Changes for Brewlabs - we only want to bridge over plain text messages
+	// If this is not a text message - return
+	if (!ctx.tediCross.message.text) {		
+		return;
+	} else {
+		// if the text message starts with a '/' - it's a command - return
+		if (ctx.tediCross.message.text.startsWith('/')) {
+			return;
+		}
+	}	
 	// group mediaGroup objects - and delay them (each object comes in separate message)
 	if (ctx.tediCross.message?.media_group_id) {
 		if (!ctx.tediCross.hasMediaGroup) {

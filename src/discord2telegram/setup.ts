@@ -266,6 +266,7 @@ export function setup(
 				// NOTE: can set caption for media group if media types <= 1 - else send text in standalone message
 				// For now: ignoring captions - always send as standalone message
 
+				/* IGNORE ALL MEDIA GROUPS FOR BREWLABS
 				// Check for attachments and pass them on
 				const images: InputMediaPhoto[] = [];
 				const videos: InputMediaVideo[] = [];
@@ -358,7 +359,7 @@ export function setup(
 						);
 					}
 				}
-
+				*/ // IGNORE ALL MEDIA GROUPS FOR BREWLABS
 				// Check the message for embeds
 				for (const embed of message.embeds) {
 					// Ignore it if it is not a "rich" embed (image, link, video, ...)
